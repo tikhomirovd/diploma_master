@@ -45,6 +45,7 @@ data/
 
 # Documentation (auto-generated)
 *.md
+*.txt
 
 # Cursor AI
 .cursor/
