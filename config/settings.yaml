@@ -1,0 +1,96 @@
+# InsideOut Framework Configuration
+
+# LLM Provider Settings
+llm:
+  gigachat:
+    model: "GigaChat:latest"
+    temperature: 0.0
+    # For credentials, use environment variables in .env file
+    
+  openai:
+    model: "gpt-4-0125-preview"
+    temperature: 0.0
+    # API key should be in OPENAI_API_KEY environment variable
+    
+  gpt35:
+    model: "gpt-3.5-turbo-0125"
+    temperature: 0.0
+
+# Dataset Configuration
+dataset:
+  name: "empatheticdialogues"
+  path: "data/empatheticdialogues"
+  label_sets:
+    - "32"
+    - "18"
+  splits:
+    - "train"
+    - "val"
+    - "test"
+
+# Emotional Agents Configuration
+emotions:
+  # Ekman's 5 basic emotions used for emotional agents
+  ekman:
+    - anger
+    - disgust
+    - fear
+    - happiness
+    - sadness
+
+# Caching Configuration
+cache:
+  llm_cache_path: "cache/llm_cache.db"
+  results_db_path: "cache/results.db"
+  enable_llm_cache: true
+
+# Logging Configuration
+logging:
+  log_dir: "logs"
+  level: "INFO"
+  console_level: "INFO"
+  file_level: "DEBUG"
+
+# Experiment Configuration
+experiments:
+  # Default settings for experiments
+  default_split: "test"
+  default_label_set: "32"
+  
+  # ERC specific settings
+  erc:
+    baseline_prompt_template: "erc_baseline"
+    insideout_prompt_template: "erc_insideout"
+  
+  # ERG specific settings
+  erg:
+    baseline_prompt_template: "erg_baseline"
+    insideout_prompt_template: "erg_insideout"
+    use_assessor: true
+    assessor_model: "gpt-4-0125-preview"
+
+# Metrics Configuration
+metrics:
+  # ERG classic metrics
+  erg_classic:
+    compute_bleu: true
+    compute_rouge: true
+    compute_distinct: true
+    bleu_max_order: 4
+  
+  # ERG assessor metrics (GPT-4 as judge)
+  erg_assessor:
+    criteria:
+      - fluency
+      - identification
+      - empathy
+      - suggestion
+      - overall
+    scale_min: 0
+    scale_max: 10
+
+# Retry and Rate Limiting
+retry:
+  max_retries: 3
+  retry_delay: 1.0  # seconds
+  exponential_backoff: true
