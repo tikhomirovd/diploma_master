@@ -41,6 +41,7 @@ logs/
 /cache/
 results/
 .env
+data/
 
 # Documentation (auto-generated)
 *.md
