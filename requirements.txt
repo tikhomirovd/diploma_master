@@ -1,0 +1,41 @@
+# Core LangChain (< 1.0.0 for gigachat compatibility)
+langchain>=0.3.0,<1.0.0
+langchain-core>=0.3.0,<1.0.0
+langchain-community>=0.3.0,<1.0.0
+langgraph>=0.3.0
+
+# LLM Providers
+langchain-gigachat>=0.3.0
+langchain-openai>=0.3.0
+
+# Data validation and settings
+pydantic==2.9.2
+pydantic-settings==2.6.1
+
+# CLI
+typer==0.12.5
+rich==13.9.4
+
+# Data processing
+pandas==2.2.3
+datasets==3.1.0
+
+# Metrics
+sacrebleu==2.4.3
+rouge-score==0.1.2
+nltk==3.9.1
+
+# Utilities
+python-dotenv==1.0.1
+PyYAML==6.0.2
+aiofiles==24.1.0
+
+# Testing
+pytest==8.3.3
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+
+# Development tools
+ipython>=8.29.0
+jupyter>=1.1.0
+ruff>=0.8.0
